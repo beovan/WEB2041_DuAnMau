@@ -52,8 +52,7 @@ Route::middleware(['auth'])->group(function () {
             Route::DELETE('destroy', [ProductController::class, 'destroy']);
         });
 
-        #Upload
-        route::post('upload/services',[\App\Http\Controllers\Admin\UploadController::class, 'store']);
+
 
     });
 });

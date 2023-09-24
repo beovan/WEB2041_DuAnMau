@@ -87,6 +87,31 @@
 
                             </ul>
                         </li>
+
+                      {{--Slider--}}
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-images"></i>
+                                <p> Slider
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/sliders/add" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Thêm Slider</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/sliders/list" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Danh Sách Slider</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
