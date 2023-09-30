@@ -10,7 +10,8 @@ class MainController extends Controller
     public function index()
     {
         echo view('admin.home',[
-            'title' => 'Trang Quản trị Admin'
-        ]);    
+            'title' => 'Trang Quản trị Admin',
+
+        ]);
     }
 }

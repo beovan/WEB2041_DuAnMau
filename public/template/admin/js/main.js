@@ -29,8 +29,13 @@ function removeRow(id,url){
 /*Upload File */
 $('#upload').change(function () {
     const form = new FormData();
+<<<<<<< HEAD
+    form.append('file',$(this)[0].files[0]);
+
+=======
 
     form.append('file', $(this)[0].files[0]);
+>>>>>>> ebe73d4121395dd9010054c33b0eb977275f6ad9
 
 
     $.ajax({
