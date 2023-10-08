@@ -4,7 +4,7 @@
         grid: {
             noDataContent: "データが見つかりません。",
             deleteConfirm: "削除しますよろしですか。",
-            pagerFormat: "頁: {first} {prev} {pages} {next} {last} &nbsp;&nbsp; 【{pageIndex}／{pageCount}】",
+            pagerFormat: "頁: {first} {prev} {contact} {next} {last} &nbsp;&nbsp; 【{pageIndex}／{pageCount}】",
             pagePrevText: "前",
             pageNextText: "次",
             pageFirstText: "最初",

@@ -4,7 +4,7 @@
         grid: {
             noDataContent: "暫無資料",
             deleteConfirm: "確認刪除？",
-            pagerFormat: "頁碼: {first} {prev} {pages} {next} {last} &nbsp;&nbsp; {pageIndex} / {pageCount}",
+            pagerFormat: "頁碼: {first} {prev} {contact} {next} {last} &nbsp;&nbsp; {pageIndex} / {pageCount}",
             pagePrevText: "上一頁",
             pageNextText: "下一頁",
             pageFirstText: "第一頁",

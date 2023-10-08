@@ -322,6 +322,7 @@
             dropdownParent: $(this).next('.dropDownSelect2')
         });
     })
+
 </script>
 <!--===============================================================================================-->
 <script src="/template/vendor/daterangepicker/moment.min.js"></script>
@@ -408,3 +409,17 @@
 <!--===============================================================================================-->
 <script src="/template/js/main.js"></script>
 <script src="/template/js/public.js"></script>
+
+<script>
+    // JavaScript to trigger modal
+    $(document).ready(function() {
+        $("#myBtn2").click(function() {
+            $("#myModal2").modal();
+        });
+    });
+
+
+
+</script>
+
+

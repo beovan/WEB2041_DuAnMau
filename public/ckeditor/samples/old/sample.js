@@ -3,7 +3,7 @@
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
-// Tool scripts for the sample pages.
+// Tool scripts for the sample contact.
 // This file can be ignored and is not required to make use of CKEditor.
 
 ( function() {

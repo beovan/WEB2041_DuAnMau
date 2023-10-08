@@ -4,7 +4,7 @@
         grid: {
             noDataContent: "Данных не найдено",
             deleteConfirm: "Вы действительно хотите удалить запись?",
-            pagerFormat: "Страницы: {first} {prev} {pages} {next} {last} &nbsp;&nbsp; {pageIndex} из {pageCount}",
+            pagerFormat: "Страницы: {first} {prev} {contact} {next} {last} &nbsp;&nbsp; {pageIndex} из {pageCount}",
             pagePrevText: "<",
             pageNextText: ">",
             pageFirstText: "<<",
