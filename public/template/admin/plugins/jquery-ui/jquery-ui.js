@@ -5,7 +5,7 @@
 
 ( function( factory ) {
 	"use strict";
-	
+
 	if ( typeof define === "function" && define.amd ) {
 
 		// AMD. Register as an anonymous module.
@@ -14793,7 +14793,7 @@ var widgetsSlider = $.widget( "ui.slider", $.ui.mouse, {
 		stop: null
 	},
 
-	// Number of pages in a slider
+	// Number of contact in a slider
 	// (how many times can you page up/down to go through the whole range)
 	numPages: 5,
 

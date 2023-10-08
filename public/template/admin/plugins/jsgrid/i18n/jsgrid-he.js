@@ -4,7 +4,7 @@
         grid: {
             noDataContent: "לא נמצא",
             deleteConfirm: "האם אתה בטוח?",
-            pagerFormat: "עמודים: {first} {prev} {pages} {next} {last} &nbsp;&nbsp; {pageIndex} מתוך {pageCount}",
+            pagerFormat: "עמודים: {first} {prev} {contact} {next} {last} &nbsp;&nbsp; {pageIndex} מתוך {pageCount}",
             pagePrevText: "הקודם",
             pageNextText: "הבא",
             pageFirstText: "ראשון",

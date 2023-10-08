@@ -4,7 +4,7 @@
         grid: {
             noDataContent: "მონაცემები ცარიელია.",
             deleteConfirm: "ნამდვილად გსურთ ჩანაწერის წაშლა?",
-            pagerFormat: "გვერდები: {first} {prev} {pages} {next} {last} &nbsp;&nbsp; {pageIndex} - {pageCount} დან.",
+            pagerFormat: "გვერდები: {first} {prev} {contact} {next} {last} &nbsp;&nbsp; {pageIndex} - {pageCount} დან.",
             pagePrevText: "<",
             pageNextText: ">",
             pageFirstText: "<<",

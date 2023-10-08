@@ -15,7 +15,7 @@
         SORT_ORDER_DESC = "desc",
 
         FIRST_PAGE_PLACEHOLDER = "{first}",
-        PAGES_PLACEHOLDER = "{pages}",
+        PAGES_PLACEHOLDER = "{contact}",
         PREV_PAGE_PLACEHOLDER = "{prev}",
         NEXT_PAGE_PLACEHOLDER = "{next}",
         LAST_PAGE_PLACEHOLDER = "{last}",
@@ -129,7 +129,7 @@
         pageIndex: 1,
         pageSize: 20,
         pageButtonCount: 15,
-        pagerFormat: "Pages: {first} {prev} {pages} {next} {last} &nbsp;&nbsp; {pageIndex} of {pageCount}",
+        pagerFormat: "Pages: {first} {prev} {contact} {next} {last} &nbsp;&nbsp; {pageIndex} of {pageCount}",
         pagePrevText: "Prev",
         pageNextText: "Next",
         pageFirstText: "First",

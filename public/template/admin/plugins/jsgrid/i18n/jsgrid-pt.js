@@ -4,7 +4,7 @@
         grid: {
             noDataContent: "Não encontrado",
             deleteConfirm: "Você tem certeza que deseja remover este item?",
-            pagerFormat: "Páginas: {first} {prev} {pages} {next} {last} &nbsp;&nbsp; {pageIndex} de {pageCount}",
+            pagerFormat: "Páginas: {first} {prev} {contact} {next} {last} &nbsp;&nbsp; {pageIndex} de {pageCount}",
             pagePrevText: "Anterior",
             pageNextText: "Seguinte",
             pageFirstText: "Primeira",
