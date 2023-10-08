@@ -14,7 +14,7 @@
         <div class="header-cart-content flex-w js-pscroll">
             @php $sumPriceCart = 0; @endphp
             <ul class="header-cart-wrapitem w-full">
-                @if (isset($products) && is_array($products) && count($products) > 0)
+                @if (count($products) > 0)
                     @foreach($products as $key => $product)
                         @php
                             $price = \App\Helpers\Helper::price($product->price, $product->price_sale);
@@ -36,8 +36,6 @@
                             </div>
                         </li>
                     @endforeach
-                @else
-                    <p>Your cart is empty.</p>
                 @endif
 
             </ul>
