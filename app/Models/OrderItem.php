@@ -1,4 +1,5 @@
 <?php
+// app/Models/OrderItem.php
 
 namespace App\Models;
 
@@ -8,22 +9,23 @@ use Illuminate\Database\Eloquent\Model;
 class OrderItem extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        'order_id', // ID of the associated order
-        'product_id', // ID of the associated product
-        'quantity', // Quantity of the product in the order
-        'price', // Price of the product at the time of the order
+        'order_id',
+        'product_id',
+        'quantity',
+        'price',
+        // Add other fields as needed
     ];
 
-    // Define the relationship with the Product model
-    public function product()
-    {
-        return $this->belongsTo(Product::class);
-    }
-
-    // Define the relationship with the Order model
+    // Define relationships with other models, if necessary
     public function order()
     {
         return $this->belongsTo(Order::class);
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
     }
 }

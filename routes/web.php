@@ -1,12 +1,24 @@
 <?php
 
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\Users\LoginController;
+use App\Http\Controllers\Admin\Users\RegisterController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\UserProfileController;
+use Illuminate\Support\Facades\Route;
+
+// Display the registration form
+Route::get('register', [RegisterController::class, 'create'])->name('register.create');
+
+// Process the registration form
+Route::post('register', [RegisterController::class, 'store'])->name('register.store');
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,11 +29,18 @@ use App\Http\Controllers\Admin\SliderController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-//chuyển đăng nhặp
+//login routes
 Route::get('admin/users/login', [LoginController::class, 'index'])->name('login');
 //chuyển sang trang admin
 Route::post('admin/users/login/store', [LoginController::class, 'store']);
+// Display the registration form
+Route::get('admin/users/register', [RegisterController::class, 'index'])->name('register.index');
 
+// Process the registration form
+Route::post('admin/users/register/store', [RegisterController::class, 'store'])->name('register.store');
+
+//logout routes
+Route::post('/logout',[LoginController::class,'logout'])->name('logout');
 //group lại
 //Middleware như là một cơ chế cho phép bạn tham gia vào
 // luồng xử lý request của một ứng dụng Larave
@@ -31,6 +50,16 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('/', [MainController::class, 'index'])->name('admin');
         Route::get('main', [MainController::class, 'index']);
+        #USERS
+        Route::prefix('users')->group(function () {
+            Route::get('add',[UserController::class,'create']);
+            Route::post('add',[UserController::class,'store']);
+            Route::get('list',[UserController::class,'index']);
+            Route::get('edit/{user}',[UserController::class,'edit']);
+            Route::post('edit/{user}',[UserController::class,'update']);
+            Route::DELETE('destroy',[UserController::class,'destroy']);
+        });
+
 
         #MENU
         Route::prefix('menus')->group(function () {
@@ -53,7 +82,7 @@ Route::middleware(['auth'])->group(function () {
             Route::DELETE('destroy', [ProductController::class, 'destroy']);
         });
 
-<<<<<<< HEAD
+
         #Slider
         Route::prefix('sliders')->group(function () {
             Route::get('add', [SliderController::class, 'create']);
@@ -63,10 +92,6 @@ Route::middleware(['auth'])->group(function () {
             Route::post('edit/{slider}', [SliderController::class, 'update']);
             Route::DELETE('destroy', [SliderController::class, 'destroy']);
         });
-=======
-
->>>>>>> ebe73d4121395dd9010054c33b0eb977275f6ad9
-
         #Upload
         Route::post('upload/services', [\App\Http\Controllers\Admin\UploadController::class, 'store']);
         #Cart
@@ -82,8 +107,24 @@ Route::get('danh-muc/{id}-{slug}.html', [App\Http\Controllers\MenuController::cl
 Route::get('san-pham/{id}-{slug}.html', [App\Http\Controllers\ProductController::class, 'index']);
 
 
+//add cart
 Route::post('add-cart', [App\Http\Controllers\CartController::class, 'index']);
 Route::get('carts', [App\Http\Controllers\CartController::class, 'show']);
 Route::post('update-cart', [App\Http\Controllers\CartController::class, 'update']);
 Route::get('carts/delete/{id}', [App\Http\Controllers\CartController::class, 'remove']);
 Route::post('carts', [App\Http\Controllers\CartController::class, 'addCart']);
+//order
+// Example routes for order management
+Route::get('profile/orders', [OrderController::class, 'index'])->name('orders.index');
+Route::get('/profile/orders/{id}', [OrderController::class, 'show'])->name('orders.show');
+
+// contact
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+
+// profile
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profile', [UserProfileController::class, 'show'])->name('profile.show');
+    Route::get('/profile/edit', [UserProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile', [UserProfileController::class, 'update'])->name('profile.update');
+});
+

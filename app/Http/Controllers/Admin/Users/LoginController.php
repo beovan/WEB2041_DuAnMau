@@ -73,7 +73,6 @@ class LoginController extends Controller
             session()->flash('error', 'Mật khẩu không chính xác.');
             return redirect()->back();
         }
-        return redirect('admin');
     }
 
         session()->flash('error', 'email hoặc mật khẩu không chính xác');

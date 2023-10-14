@@ -26,20 +26,10 @@
                 </select>
 
             </div>
-
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control" placeholder="Enter password">
-            </div>
-
-            <div class="form-group">
-                <label>Confirm Password</label>
-                <input class="form-control" type="password" name="password_confirmation" placeholder="Confirm Password" id="password_confirmation">
-            </div>
         </div>
 
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Add User</button>
+            <button type="submit" class="btn btn-primary">Update user</button>
         </div>
     </form>
 @endsection

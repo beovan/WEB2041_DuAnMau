@@ -5,17 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Order;
+use App\Models\OrderItem;
+use App\Models\User;
 
 class UserProfileController extends Controller
 {
     // Show the user profile
     public function show()
     {
-        $user = Auth::user();
+        $user = auth()->user(); // Get the authenticated user
+
+        // Retrieve the user's order history
+        $orders = Order::where('customer_id', $user->id)->orderByDesc('created_at')->get();
+
         return view('profile.show', [
-            'title'=> 'User Profile'
+            'title' => 'User Profile',
+            'user' => $user,
+            'orders' => $orders,
         ]);
     }
+
 
 // Show the edit profile form
     public function edit()
