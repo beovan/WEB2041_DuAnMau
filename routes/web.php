@@ -53,7 +53,7 @@ Route::middleware(['auth'])->group(function () {
             Route::DELETE('destroy', [ProductController::class, 'destroy']);
         });
 
-<<<<<<< HEAD
+
         #Slider
         Route::prefix('sliders')->group(function () {
             Route::get('add', [SliderController::class, 'create']);
@@ -63,9 +63,7 @@ Route::middleware(['auth'])->group(function () {
             Route::post('edit/{slider}', [SliderController::class, 'update']);
             Route::DELETE('destroy', [SliderController::class, 'destroy']);
         });
-=======
 
->>>>>>> ebe73d4121395dd9010054c33b0eb977275f6ad9
 
         #Upload
         Route::post('upload/services', [\App\Http\Controllers\Admin\UploadController::class, 'store']);
@@ -87,3 +85,20 @@ Route::get('carts', [App\Http\Controllers\CartController::class, 'show']);
 Route::post('update-cart', [App\Http\Controllers\CartController::class, 'update']);
 Route::get('carts/delete/{id}', [App\Http\Controllers\CartController::class, 'remove']);
 Route::post('carts', [App\Http\Controllers\CartController::class, 'addCart']);
+
+//order
+// Example routes for order management
+Route::get('profile/orders', [OrderController::class, 'index'])->name('orders.index');
+Route::get('/profile/orders/{id}', [OrderController::class, 'show'])->name('orders.show');
+
+// contact
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+
+// profile
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profile', [UserProfileController::class, 'show'])->name('profile.show');
+    Route::get('/profile/edit', [UserProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile', [UserProfileController::class, 'update'])->name('profile.update');
+});
+
+

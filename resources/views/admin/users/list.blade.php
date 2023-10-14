@@ -28,7 +28,7 @@
                         <i class="fas fa-edit"></i>
                     </a>
                     <a href="#" class="btn btn-danger btn-sm"
-                       onclick="removeRow({{ $user->id }}, '/admin/users/destroy')">
+                       onclick="removeRow({{ $user->id }},'/admin/users/destroy')">
                         <i class="fas fa-trash"></i>
                     </a>
                 </td>
