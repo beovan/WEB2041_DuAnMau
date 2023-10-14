@@ -115,19 +115,16 @@ Route::get('carts/delete/{id}', [App\Http\Controllers\CartController::class, 're
 Route::post('carts', [App\Http\Controllers\CartController::class, 'addCart']);
 //order
 // Example routes for order management
-Route::get('/orders', 'OrderController@index');
-Route::get('/orders/{id}', 'OrderController@show');
-Route::post('/orders', 'OrderController@store');
-Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
-Route::get('/orders/{id}', [OrderController::class, 'show'])->name('orders.show');
+Route::get('profile/orders', [OrderController::class, 'index'])->name('orders.index');
+Route::get('/profile/orders/{id}', [OrderController::class, 'show'])->name('orders.show');
 
 // contact
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 // profile
-
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [UserProfileController::class, 'show'])->name('profile.show');
     Route::get('/profile/edit', [UserProfileController::class, 'edit'])->name('profile.edit');
-    Route::put('/profile', [UserProfileController::class, 'upadte'])->name('profile.update');
+    Route::put('/profile', [UserProfileController::class, 'update'])->name('profile.update');
 });
+

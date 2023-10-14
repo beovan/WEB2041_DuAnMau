@@ -3,6 +3,7 @@
 @section('content')
     <div class="customer mt-3">
         <ul>
+
             <li>Tên khách hàng: <strong>{{ $customer->name }}</strong></li>
             <li>Số điện thoại: <strong>{{ $customer->phone }}</strong></li>
             <li>Địa chỉ: <strong>{{ $customer->address }}</strong></li>
@@ -22,21 +23,20 @@
                 <th class="column-4">Quantity</th>
                 <th class="column-5">Total</th>
             </tr>
-
-            @foreach($carts as $key => $cart)
+            @foreach($orderItems as $orderItem)
                 @php
-                    $price = $cart->price * $cart->qty;
+                    $price = $orderItem->price * $orderItem->quantity;
                     $total += $price;
                 @endphp
                 <tr>
                     <td class="column-1">
                         <div class="how-itemcart1">
-                            <img src="{{ $cart->product->thumb }}" alt="IMG" style="width: 100px">
+                            <img src="{{ $orderItem->product->thumb }}" alt="IMG" style="width: 100px">
                         </div>
                     </td>
-                    <td class="column-2">{{ $cart->product->name }}</td>
-                    <td class="column-3">{{ number_format($cart->price, 0, '', '.') }}</td>
-                    <td class="column-4">{{ $cart->qty }}</td>
+                    <td class="column-2">{{ $orderItem->product->name }}</td>
+                    <td class="column-3">{{ number_format($orderItem->price, 0, '', '.') }}</td>
+                    <td class="column-4">{{ $orderItem->quantity }}</td>
                     <td class="column-5">{{ number_format($price, 0, '', '.') }}</td>
                 </tr>
             @endforeach
@@ -47,5 +47,6 @@
             </tbody>
         </table>
     </div>
+
 @endsection
 

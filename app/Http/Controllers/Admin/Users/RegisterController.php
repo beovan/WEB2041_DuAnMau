@@ -25,7 +25,6 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
-
         ]);
 
         // Create a new user instance
@@ -38,6 +37,13 @@ class RegisterController extends Controller
         $user->save();
         // Optionally log in the user
         Auth::login($user);
+        if ($user->isAdmin()) {
+            // Redirect admin to admin dashboard
+            return redirect()->route('admin');
+        } else {
+            return  redirect('/');
+
+        }
         // Redirect to a page or show a success message
         return redirect()->route('admin')->with('success', 'Registration successful');
     }

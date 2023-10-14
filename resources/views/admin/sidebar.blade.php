@@ -155,6 +155,24 @@
 
                             </ul>
                         </li>
+
+                        <li class="nav-item">
+
+                            <a  class="nav-link" href="{{ route('logout') }}"
+                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="nav-icon fas fa-sign-out-alt"></i>
+                                    <p>
+                                        logout
+                                    </p>
+                            </a>
+                            <span class="float-right text-muted text-sm">
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                              style="display: none;">
+                                            @csrf
+                                        </form>
+                                </span>
+                        </li>
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

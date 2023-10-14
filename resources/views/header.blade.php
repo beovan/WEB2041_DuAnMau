@@ -33,8 +33,6 @@
                     </div>
 
 
-
-
                         <!-- Button trigger modal -->
                         @if(Auth::check())
                         <li class="nav-item dropdown">
@@ -55,7 +53,7 @@
                                               style="display: none;">
                                             @csrf
                                         </form>
-                                    </span>
+                                </span>
 
                             </div>
                         </li>
