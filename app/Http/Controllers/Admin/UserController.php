@@ -26,6 +26,8 @@ class UserController extends Controller
             'levels' => $levels
         ]);
     }
+
+
     public function store(Request $request)
     {
         // Validation logic here
@@ -74,30 +76,32 @@ class UserController extends Controller
             'password' => 'sometimes|nullable|string|min:8|confirmed',
         ]);
 
-
         // Find the user by ID
-        $users = User::findOrFail($id);
-        try {
-            // Create a new user based on form data
+        $user = User::findOrFail($id);
 
+        try {
             // Update user data based on form data
-            $users->name = $request->input('name');
-            $users->email = $request->input('email');
-            $users->password = Hash::make($request->input('password'));
-            $users->level = $request->input('level');
-            // Save updated user to the database
-            if ($request->has('password')) {
-                $users->password = Hash::make($request->input('password'));
-                $users->save();
-                return redirect('/admin/users/list')
-                    ->with('success', 'User updated successfully');
+            $user->name = $request->input('name');
+            $user->email = $request->input('email');
+
+            if ($request->has('password') && $request->input('password') != null) {
+                // Only hash the password if it's not null
+                $user->password = Hash::make($request->input('password'));
             }
+
+            $user->level = $request->input('level');
+
+            // Save updated user to the database
+            $user->save();
+
+            return redirect('/admin/users/list')
+                ->with('success', 'User updated successfully');
         } catch (\Exception $e) {
             // Handle any exceptions, e.g., database errors
-            return redirect()->back()->with('error', 'User failed to updated ') . $e->getMessage();
+            return redirect()->back()->with('error', 'User failed to update: ' . $e->getMessage());
         }
-
     }
+
 
     public function destroy($id)
     {
