@@ -14,32 +14,31 @@
         <div class="header-cart-content flex-w js-pscroll">
             @php $sumPriceCart = 0; @endphp
             <ul class="header-cart-wrapitem w-full">
-                @if (isset($products) && is_array($products) && count($products) > 0)
-                    @foreach($products as $key => $product)
-                        @php
-                            $price = \App\Helpers\Helper::price($product->price, $product->price_sale);
-                            $sumPriceCart += $product->price_sale != 0 ? $product->price_sale : $product->price;
-                        @endphp
-                        <li class="header-cart-item flex-w flex-t m-b-12">
-                            <div class="header-cart-item-img">
-                                <img src="{{ $product->thumb }}" alt="IMG">
-                            </div>
+                @isset($products)
+                    @if (count($products) > 0)
+                        @foreach($products as $key => $product)
+                            @php
+                                $price = \App\Helpers\Helper::price($product->price, $product->price_sale);
+                                $sumPriceCart += $product->price_sale != 0 ? $product->price_sale : $product->price;
+                            @endphp
+                            <li class="header-cart-item flex-w flex-t m-b-12">
+                                <div class="header-cart-item-img">
+                                    <img src="{{ $product->thumb }}" alt="IMG">
+                                </div>
 
-                            <div class="header-cart-item-txt p-t-8">
-                                <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-                                    {{ $product->name }}
-                                </a>
+                                <div class="header-cart-item-txt p-t-8">
+                                    <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+                                        {{ $product->name }}
+                                    </a>
 
-                                <span class="header-cart-item-info">
-                                       {!! $price !!}
-                                </span>
-                            </div>
-                        </li>
-                    @endforeach
-                @else
-                    <p>Your cart is empty.</p>
-                @endif
-
+                                    <span class="header-cart-item-info">
+                                        {!! $price !!}
+                                    </span>
+                                </div>
+                            </li>
+                        @endforeach
+                    @endif
+                @endisset
             </ul>
 
             <div class="w-full">

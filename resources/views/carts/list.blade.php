@@ -127,6 +127,7 @@
                                             <textarea class="cl8 plh3 size-111 p-lr-15" name="content"></textarea>
                                         </div>
 
+
                                     </div>
                                 </div>
                             </div>
@@ -140,6 +141,6 @@
             </div>
     </form>
     @else
-        <div class="text-center"><h2>Giỏ hàng trống</h2></div>
+        <div class="text-center" style="padding: 10px"><h2>Giỏ hàng trống</h2></div>
     @endif
 @endsection
