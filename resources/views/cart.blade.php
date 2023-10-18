@@ -10,10 +10,10 @@
                 <i class="zmdi zmdi-close"></i>
             </div>
         </div>
-
         <div class="header-cart-content flex-w js-pscroll">
             @php $sumPriceCart = 0; @endphp
             <ul class="header-cart-wrapitem w-full">
+                @if(isset($product))
                 @if (count($products) > 0)
                     @foreach($products as $key => $product)
                         @php
@@ -37,7 +37,7 @@
                         </li>
                     @endforeach
                 @endif
-
+                @endif
             </ul>
 
             <div class="w-full">

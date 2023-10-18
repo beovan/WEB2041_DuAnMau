@@ -29,7 +29,7 @@
         </div>
 
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Update user</button>
+            <button type="submit" class="btn btn-primary">Chỉnh sửa người dùng </button>
         </div>
     </form>
 @endsection

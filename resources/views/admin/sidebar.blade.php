@@ -15,7 +15,7 @@
                         <img src="/template/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
+                        <a href="#" class="d-block">Admin</a>
                     </div>
                 </div>
 
@@ -38,6 +38,29 @@
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+{{--        Người dùng           --}}
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p> Người dùng
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/users/add" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Thêm người dùng</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/users/list" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Danh Sách người dùng</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                         {{--Danh mục--}}
                         <li class="nav-item">
                             <a href="#" class="nav-link">
@@ -112,7 +135,7 @@
 
                             </ul>
                         </li>
-<<<<<<< HEAD
+
 
 {{--Đơn hàng--}}
                         <li class="nav-item">
@@ -132,8 +155,24 @@
 
                             </ul>
                         </li>
-=======
->>>>>>> ebe73d4121395dd9010054c33b0eb977275f6ad9
+
+                        <li class="nav-item">
+
+                            <a  class="nav-link" href="{{ route('logout') }}"
+                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="nav-icon fas fa-sign-out-alt"></i>
+                                    <p>
+                                        logout
+                                    </p>
+                            </a>
+                            <span class="float-right text-muted text-sm">
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                              style="display: none;">
+                                            @csrf
+                                        </form>
+                                </span>
+                        </li>
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
