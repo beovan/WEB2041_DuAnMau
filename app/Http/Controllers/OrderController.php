@@ -11,7 +11,6 @@ class OrderController extends Controller
     {
         // Your code to retrieve a list of orders goes here
         $orders = Order::all(); // Assuming you have an Order model
-
         // Return a view with the list of orders
         return view('orders.index', [
             'title' => 'Đơn hàng',

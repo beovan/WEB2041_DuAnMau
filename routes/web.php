@@ -124,7 +124,6 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 // profile
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [UserProfileController::class, 'show'])->name('profile.show');
-    Route::get('/profile/edit', [UserProfileController::class, 'edit'])->name('profile.edit');
-    Route::put('/profile', [UserProfileController::class, 'update'])->name('profile.update');
+    Route::post('/profile', [UserProfileController::class, 'update']);
 });
 

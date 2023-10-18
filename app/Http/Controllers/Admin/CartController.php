@@ -40,6 +40,4 @@ class CartController extends Controller
             'orderItems' => $orderItems,
         ]);
     }
-
-
 }

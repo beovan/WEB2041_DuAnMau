@@ -106,7 +106,7 @@
                                         <span class="stext-112 cl8">
                                             Thông Tin Khách Hàng
                                         </span>
-
+                                        <input type="hidden" name="id" value="{{Auth::user()->id}}">
                                         <div class="bor8 bg0 m-b-12">
                                             <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="name" placeholder="Tên khách Hàng" required>
                                         </div>

@@ -33,3 +33,18 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="/template/css/style.css">
 <meta name="csrf-token" content="{{ csrf_token() }}">
+
+<!-- Font Awesome -->
+<!-- icheck bootstrap -->
+<link rel="stylesheet" href="/template/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="/template/admin/dist/css/adminlte.min.css">
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
+<style>
+    .text-center{
+        font-size: 1rem;
+    }
+
+</style>
+

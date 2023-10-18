@@ -17,8 +17,12 @@
                 <div class="menu-desktop">
                     <ul class="main-menu">
                         <li class="active-menu"><a href="/">Trang Chủ</a> </li>
+                        <li class="active-menu"><a href="#">Danh mục</a>
+                            <ul class="sub-menu">
+                                {!! $menusHtml !!}
+                            </ul>
 
-                        {!! $menusHtml !!}
+                        </li>
 
                         <li>
                             <a href="{{ route('contact') }}">Liên Hệ</a>
