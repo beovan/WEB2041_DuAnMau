@@ -1,27 +1,42 @@
 <?php
 
-
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\Users\LoginController;
+use App\Http\Controllers\Admin\Users\RegisterController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\UserProfileController;
+use Illuminate\Support\Facades\Route;
+
+// Display the registration form
+Route::get('register', [RegisterController::class, 'create'])->name('register.create');
+
+// Process the registration form
+Route::post('register', [RegisterController::class, 'store'])->name('register.store');
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
+	@@ -29,18 +17,11 @@
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-//chuyển đăng nhặp
+//login routes
 Route::get('admin/users/login', [LoginController::class, 'index'])->name('login');
 //chuyển sang trang admin
 Route::post('admin/users/login/store', [LoginController::class, 'store']);
+// Display the registration form
+Route::get('admin/users/register', [RegisterController::class, 'index'])->name('register.index');
 
+// Process the registration form
+Route::post('admin/users/register/store', [RegisterController::class, 'store'])->name('register.store');
+
+//logout routes
+Route::post('/logout',[LoginController::class,'logout'])->name('logout');
 //group lại
 //Middleware như là một cơ chế cho phép bạn tham gia vào
 // luồng xử lý request của một ứng dụng Larave
@@ -31,6 +46,16 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('/', [MainController::class, 'index'])->name('admin');
         Route::get('main', [MainController::class, 'index']);
+
+        #USERS
+        Route::prefix('users')->group(function () {
+            Route::get('add',[UserController::class,'create']);
+            Route::post('add',[UserController::class,'store']);
+            Route::get('list',[UserController::class,'index']);
+            Route::get('edit/{user}',[UserController::class,'edit']);
+            Route::post('edit/{user}',[UserController::class,'update']);
+            Route::DELETE('destroy',[UserController::class,'destroy']);
+        });
 
         #MENU
         Route::prefix('menus')->group(function () {
