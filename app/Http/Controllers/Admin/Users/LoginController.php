@@ -50,7 +50,6 @@ class LoginController extends Controller
             session()->flash('error', 'Email không tồn tại.');
             return redirect()->back();
         }
-
         // Verify the provided password against the user's hashed password
         if (Hash::check($request->password, $user->password)) {
             // Password is correct, log in the user
@@ -61,6 +60,7 @@ class LoginController extends Controller
 
             // Redirect to the appropriate page
             if ($user->isAdmin()) {
+
                 // Redirect admin to admin dashboard
                 return redirect()->route('admin');
             } else {

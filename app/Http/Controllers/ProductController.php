@@ -18,7 +18,6 @@ class ProductController extends Controller
     {
         $product = $this->productService->show($id);
         $productsMore = $this->productService->more($id);
-
         return view('products.content', [
             'title' => $product->name,
             'product' => $product,

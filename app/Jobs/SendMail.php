@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Jobs;
 
 use App\Mail\OrderShipped;
@@ -11,7 +10,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
 
-class SendMail implements ShouldQueue
+class SendMail implements ShouldQueue // Implement ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 

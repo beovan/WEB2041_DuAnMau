@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\MenuController;
+use App\Http\Controllers\admin\PostController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\Users\LoginController;
@@ -88,6 +89,16 @@ Route::middleware(['auth'])->group(function () {
             Route::post('edit/{slider}', [SliderController::class, 'update']);
             Route::DELETE('destroy', [SliderController::class, 'destroy']);
         });
+        #Post
+        Route::prefix('posts')->group(function () {
+            Route::get('add', [PostController::class, 'create']);
+            Route::post('add', [PostController::class, 'store']);
+            Route::get('list', [PostController::class, 'index']);
+            Route::get('edit/{post}', [PostController::class, 'show']);
+            Route::post('edit/{post}', [PostController::class, 'update']);
+            Route::DELETE('destroy', [PostController::class, 'destroy']);
+        });
+
 
 
         #Upload

@@ -3,7 +3,7 @@
 
 namespace App\Http\Services;
 
-
+use Illuminate\Support\Facades\Mail;
 use App\Jobs\SendMail;
 use App\Models\Cart;
 use App\Models\Customer;
@@ -65,11 +65,26 @@ class CartService
 
 
     public function update($request)
-    {
-        Session::put('carts', $request->input('num_product'));
+{
+    $cartData = $request->input('num_product');
 
-        return true;
+    // Loop through the cart data and check each quantity
+    foreach ($cartData as $productId => $quantity) {
+        $quantity = (int)$quantity;
+
+        if ($quantity <= 0) {
+            Session::flash('error', 'quantity must be greater than 0');
+            $cartData[$productId] = 1;
+            return false;
+        }
     }
+
+    Session::put('carts', $cartData);
+    Session::flash('success', 'Quantity and Product update succesfuly');
+
+    return true;
+}
+
 
     public function remove($id)
     {
@@ -91,7 +106,6 @@ class CartService
             }
             $customer = Customer::create([
                 'name' => $request->input('name'),
-                'user_id' => $request->input('id'),
                 'phone' => $request->input('phone'),
                 'address' => $request->input('address'),
                 'email' => $request->input('email'),

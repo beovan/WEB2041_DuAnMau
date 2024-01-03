@@ -19,7 +19,7 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>
-                {{($user->level === 0 )?'admin' :'user'}}
+                {{($user->level === 0 )?'Admin' :'User'}}
                 </td>
 
                 <td>{{ $user->updated_at }}</td>
